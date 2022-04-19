@@ -222,7 +222,7 @@ def get_func_count(func):
 def call_one(x):
     print(f"func call one: {call_one.calls}")
 
-@call_counter
+@get_func_count
 def call_two(x):
     print(f"func call two: {call_two.calls}")
 
