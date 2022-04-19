@@ -208,3 +208,30 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+""" 7. decorator in python that will count how many times the decorated function was called """
+
+def get_func_count(func):
+    def func_count(x):
+        func_count.calls += 1
+        return func(x)
+    func_count.calls = 0
+    return func_count
+
+@get_func_count
+def call_one(x):
+    print(f"func call one: {call_one.calls}")
+
+@call_counter
+def call_two(x):
+    print(f"func call two: {call_two.calls}")
+
+
+for i in range(3):
+    call_one(i)
+
+for i in range(5):
+    call_two(i)
+
+for i in range(6):
+    call_one(i)
